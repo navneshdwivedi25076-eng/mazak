@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Comedy Zone 😂</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+margin-top:80px;
+}
+
+h1{
+font-size:50px;
+color:white;
+text-shadow:3px 3px 8px black;
+animation:bounce 1s infinite alternate;
+}
+
+@keyframes bounce{
+from{transform:translateY(0);}
+to{transform:translateY(-15px);}
+}
+
+button{
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:30px;
+background:#ff0066;
+color:white;
+cursor:pointer;
+transition:0.4s;
+}
+
+button:hover{
+background:#6600ff;
+transform:scale(1.1);
+}
+
+#jokeBox{
+margin:40px auto;
+width:60%;
+padding:25px;
+background:white;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+font-size:24px;
+font-weight:bold;
+min-height:100px;
+}
+
+.emoji{
+position:absolute;
+font-size:40px;
+animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-100px);
+}
+100%{
+transform:translateY(110vh);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>😂 COMEDY CLUB 😂</h1>
+
+<button onclick="showJoke()">
+Tell Me A Joke
+</button>
+
+<div id="jokeBox">
+Click the button for unlimited comedy!
+</div>
+
+</div>
+
+<script>
+
+let jokes=[
+
+"Why don’t programmers like nature? Too many bugs! 🐛",
+
+"My WiFi went down for 5 minutes... I had to talk to my family. They seem nice. 😂",
+
+"Teacher: Why are you late? Student: Because of the sign 'School Ahead, Go Slow!' 😎",
+
+"I told my computer I needed a break... now it won’t stop sending updates. 💻",
+
+"Why did the JavaScript developer wear glasses? Because he couldn't C#! 🤣",
+
+"Doctor: You need exercise. Me: Is laughing enough? 😂"
+
+];
+
+function showJoke(){
+
+let random=Math.floor(Math.random()*jokes.length);
+
+document.getElementById("jokeBox").innerHTML=jokes[random];
+
+}
+
+function createEmoji(){
+
+let emoji=document.createElement("div");
+
+emoji.classList.add("emoji");
+
+emoji.innerHTML="😂";
+
+emoji.style.left=Math.random()*100+"vw";
+
+emoji.style.animationDuration=(Math.random()*3+2)+"s";
+
+document.body.appendChild(emoji);
+
+setTimeout(()=>{
+emoji.remove();
+},5000);
+
+}
+
+setInterval(createEmoji,300);
+
+</script>
+
+</body>
+</html>
